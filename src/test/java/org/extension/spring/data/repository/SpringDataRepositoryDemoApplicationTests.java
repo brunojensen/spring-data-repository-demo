@@ -1,4 +1,4 @@
-package com.bea.spring.boot;
+package org.extension.spring.data.repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

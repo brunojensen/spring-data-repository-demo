@@ -1,12 +1,20 @@
-package com.bea.spring.boot.model;
+package org.extension.spring.data.repository.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@SqlResultSetMapping(
+    name = "PersonContactResultMapping",
+    classes = @ConstructorResult(
+        targetClass = PersonContactResultMapping.class,
+        columns = {
+            @ColumnResult(name = "email", type = String.class),
+            @ColumnResult(name = "name", type = String.class),
+            @ColumnResult(name = "contact", type = String.class)
+        }
+    )
+)
 @Entity
 @Table(name = "person")
 public class Person {
@@ -17,8 +25,14 @@ public class Person {
     private String surname;
     private LocalDate birth;
 
-    @OneToMany
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Contact> contacts;
+
+    public Person() {}
+
+    public Person(String name) {
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;
