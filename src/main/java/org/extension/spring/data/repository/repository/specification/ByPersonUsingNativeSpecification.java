@@ -1,8 +1,6 @@
 package org.extension.spring.data.repository.repository.specification;
 
-import spring.data.repository.specification.NativeQuerySpecification;
-
-import javax.persistence.Query;
+import org.extension.spring.data.repository.specification.NativeQuerySpecification;
 
 public class ByPersonUsingNativeSpecification implements NativeQuerySpecification {
 
@@ -11,8 +9,5 @@ public class ByPersonUsingNativeSpecification implements NativeQuerySpecificatio
         return "SELECT * FROM Person p";
     }
 
-    @Override
-    public void toPredicate(final Query query) {
-    }
 
 }

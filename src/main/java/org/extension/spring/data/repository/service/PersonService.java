@@ -7,6 +7,9 @@ import org.extension.spring.data.repository.repository.PersonRepository;
 import org.extension.spring.data.repository.repository.specification.ByPersonContactUsingTypedNativeSpecification;
 import org.extension.spring.data.repository.repository.specification.ByPersonUsingTypedNativeSpecification;
 import org.extension.spring.data.repository.repository.specification.ByPersonUsingTypedQuerySpecification;
+import org.extension.spring.data.repository.specification.QuerySpecification;
+import org.extension.spring.data.repository.specification.TypedNativeQuerySpecification;
+import org.extension.spring.data.repository.specification.TypedQuerySpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,8 +41,8 @@ public class PersonService {
     }
 
     /**
-     * Uses {@link spring.data.repository.specification.TypedNativeQuerySpecification}
-     * combined with {@link spring.data.repository.annotations.TypedAsSqlResultSetMapping}
+     * Uses {@link org.extension.spring.data.repository.specification.TypedNativeQuerySpecification}
+     * combined with {@link org.extension.spring.data.repository.annotations.TypedAsSqlResultSetMapping}
      * to use SqlResultMapping to serialize the query result into the pre-defined object.
      */
     public List<PersonContactResultMapping> findAll2() {
@@ -55,15 +58,15 @@ public class PersonService {
     }
 
     /**
-     * Uses {@link spring.data.repository.specification.TypedNativeQuerySpecification}
+     * Uses {@link org.extension.spring.data.repository.specification.TypedNativeQuerySpecification}
      *      * for count
      */
     public List<Person> findAll() {
-        return repository.findAll(new ByPersonUsingTypedNativeSpecification());
+        return repository.findAll((TypedQuerySpecification<Person>) () -> "SELECT * FROM Person");
     }
 
     /**
-     * Uses {@link spring.data.repository.specification.TypedNativeQuerySpecification} with
+     * Uses {@link org.extension.spring.data.repository.specification.TypedNativeQuerySpecification} with
      * SELECT * ... for counting.
      *
      * The query will be replaced with SELECT count(*)... at execution time.
@@ -73,7 +76,7 @@ public class PersonService {
     }
 
     /**
-     * Uses {@link spring.data.repository.specification.NativeQuerySpecification} with
+     * Uses {@link org.extension.spring.data.repository.specification.NativeQuerySpecification} with
      * SELECT * ... for counting.
      *
      * The query will be replaced with SELECT count(*)... at execution time.

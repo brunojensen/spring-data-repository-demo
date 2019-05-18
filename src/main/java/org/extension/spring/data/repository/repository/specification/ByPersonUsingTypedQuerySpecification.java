@@ -1,7 +1,7 @@
 package org.extension.spring.data.repository.repository.specification;
 
 import org.extension.spring.data.repository.model.Person;
-import spring.data.repository.specification.TypedQuerySpecification;
+import org.extension.spring.data.repository.specification.TypedQuerySpecification;
 
 import javax.persistence.Query;
 import java.util.Objects;
@@ -28,7 +28,7 @@ public class ByPersonUsingTypedQuerySpecification implements TypedQuerySpecifica
     }
 
     @Override
-    public void toPredicate(final Query query) {
+    public void withPredicate(final Query query) {
         query.setParameter("name", person.getName());
     }
 

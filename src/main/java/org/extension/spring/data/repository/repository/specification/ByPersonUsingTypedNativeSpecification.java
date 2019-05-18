@@ -1,7 +1,7 @@
 package org.extension.spring.data.repository.repository.specification;
 
 import org.extension.spring.data.repository.model.Person;
-import spring.data.repository.specification.TypedNativeQuerySpecification;
+import org.extension.spring.data.repository.specification.TypedNativeQuerySpecification;
 
 import javax.persistence.Query;
 
@@ -15,9 +15,5 @@ public class ByPersonUsingTypedNativeSpecification
                 "FROM Person p";
     }
 
-
-    @Override
-    public void toPredicate(final Query query) {
-    }
 
 }

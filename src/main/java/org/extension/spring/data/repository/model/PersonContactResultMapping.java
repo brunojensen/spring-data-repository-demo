@@ -1,6 +1,6 @@
 package org.extension.spring.data.repository.model;
 
-import spring.data.repository.annotations.TypedAsSqlResultSetMapping;
+import org.extension.spring.data.repository.annotations.TypedAsSqlResultSetMapping;
 
 @TypedAsSqlResultSetMapping("PersonContactResultMapping")
 public class PersonContactResultMapping {
