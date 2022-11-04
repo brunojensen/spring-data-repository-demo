@@ -1,14 +1,12 @@
-package org.extension.spring.data.repository.service;
+package org.extension.spring.data.repository.demo.service;
 
-import org.extension.spring.data.repository.model.Person;
-import org.extension.spring.data.repository.model.PersonContactResultMapping;
-import org.extension.spring.data.repository.model.PersonRecord;
-import org.extension.spring.data.repository.repository.PersonRepository;
-import org.extension.spring.data.repository.repository.specification.ByPersonContactUsingTypedNativeSpecification;
-import org.extension.spring.data.repository.repository.specification.ByPersonUsingTypedNativeSpecification;
-import org.extension.spring.data.repository.repository.specification.ByPersonUsingTypedQuerySpecification;
-import org.extension.spring.data.repository.specification.QuerySpecification;
-import org.extension.spring.data.repository.specification.TypedNativeQuerySpecification;
+import org.extension.spring.data.repository.demo.model.PersonContactResultMapping;
+import org.extension.spring.data.repository.demo.model.PersonRecord;
+import org.extension.spring.data.repository.demo.model.Person;
+import org.extension.spring.data.repository.demo.repository.PersonRepository;
+import org.extension.spring.data.repository.demo.repository.specification.ByPersonContactUsingTypedNativeSpecification;
+import org.extension.spring.data.repository.demo.repository.specification.ByPersonUsingTypedNativeSpecification;
+import org.extension.spring.data.repository.demo.repository.specification.ByPersonUsingTypedQuerySpecification;
 import org.extension.spring.data.repository.specification.TypedQuerySpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -62,7 +60,7 @@ public class PersonService {
      *      * for count
      */
     public List<Person> findAll() {
-        return repository.findAll((TypedQuerySpecification<Person>) () -> "SELECT * FROM Person");
+        return repository.findAll((TypedQuerySpecification) () -> "SELECT p FROM Person p");
     }
 
     /**

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@ComponentScan(basePackages = {"com.bea.spring.boot"})
+@ComponentScan(basePackages = {"org.extension.spring.data.repository.demo"})
 @EnableJpaRepositories(
         value = "org.extension.spring.data.repository",
         repositoryBaseClass = RepositorySpecificationExecutorImpl.class)

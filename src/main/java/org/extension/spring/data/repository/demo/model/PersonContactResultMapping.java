@@ -1,4 +1,4 @@
-package org.extension.spring.data.repository.model;
+package org.extension.spring.data.repository.demo.model;
 
 import org.extension.spring.data.repository.annotations.TypedAsSqlResultSetMapping;
 

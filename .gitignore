@@ -13,3 +13,4 @@ release.properties
 *.asc
 *.iml
 .idea
+.editorconfig

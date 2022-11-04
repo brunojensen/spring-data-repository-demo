@@ -1,17 +1,17 @@
-package org.extension.spring.data.repository.controller;
+package org.extension.spring.data.repository.demo.controller;
 
-import org.extension.spring.data.repository.model.Contact;
-import org.extension.spring.data.repository.model.Person;
-import org.extension.spring.data.repository.service.PersonService;
+import org.extension.spring.data.repository.demo.model.Contact;
+import org.extension.spring.data.repository.demo.model.Person;
+import org.extension.spring.data.repository.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.IntStream;
 
 @RestController
@@ -27,7 +27,7 @@ public class PersonController {
         personService.findById("");
         personService.searchBy(new Person("John"));
         personService.searchBy(new Person("John"), PageRequest.of(2, 100));
-        personService.searchBy(new Person("John"), PageRequest.of(2, 100, new Sort(Sort.Direction.ASC, "name")));
+        personService.searchBy(new Person("John"), PageRequest.of(2, 100, Sort.by(Sort.Direction.ASC, "name")));
         personService.findAll(PageRequest.of(2, 100));
         personService.findAll();
         personService.findAll2();
